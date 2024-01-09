@@ -6,69 +6,51 @@
 /*   By: healeksa <healeksa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 19:23:49 by healeksa          #+#    #+#             */
-/*   Updated: 2024/01/09 14:59:51 by healeksa         ###   ########.fr       */
+/*   Updated: 2024/01/09 15:18:33 by healeksa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
 #include <unistd.h>
-#define BUFF_SIZE 1024
+#include <fcntl.h>
 
-void	ft_putchar(char c)
+void	ft_putchar(char ch)
 {
-	write(1, &c, 1);
+	write(1, &ch, 1);
 }
 
-void	ft_putstr(char *c)
+void	ft_putstr(char *str)
 {
 	int	i;
 
 	i = 0;
-	while (c[i] != '\0')
+	while (str[i])
 	{
-		ft_putchar(c[i]);
+		ft_putchar(str[i]);
 		i++;
 	}
 }
 
-int	validate(int argc)
+int	main(int ac, char **av)
 {
-	if (argc <= 1)
-	{
-		ft_putstr("File name missing.");
-		return (1);
-	}
-	else if (argc > 2)
-	{
-		ft_putstr("Too many arguments.");
-		return (1);
-	}
-	return (0);
-}
+	int		fd;
+	char	bf[1];
 
-int	main(int argc, char **argv)
-{
-	int		desc;
-	int		file;
-	char	data[BUFF_SIZE];
-
-	if (validate(argc))
-		return (1);
-	desc = open(argv[1], O_RDONLY);
-	if (desc < 0)
+	if (ac < 2)
+		ft_putstr("File name missing.\n");
+	else if (ac > 2)
+		ft_putstr("Too many arguments.\n");
+	else
 	{
-		ft_putstr("Cannot read file.");
-		return (1);
+		bf[0] = 0;
+		fd = open(av[1], O_RDONLY);
+		if (fd == -1)
+		{
+			ft_putstr("Cannot read file.\n");
+			return (1);
+		}
+		while (read(fd, bf, 1))
+			ft_putchar(bf[0]);
+		close(fd);
+		return (0);
 	}
-	file = 1;
-	while (file > 0)
-	{
-		file = read(desc, data, BUFF_SIZE);
-		data[file] = '\0';
-		ft_putstr(data);
-	}
-	close(desc);
-	if (close(desc) == -1)
-		return (1);
-	return (0);
 }

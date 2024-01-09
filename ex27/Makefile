@@ -1,17 +1,17 @@
-SRC = ./ft_display_file.c
 NAME = ft_display_file
-C_FLAGS = -Wall -Wextra -Werror
-RM = /bin/rm -f
+SRC = ./ft_display_file.c
+FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
+    chmod 777 $(NAME)
 
 $(NAME):
-	gcc $(C_FLAGS) $(SRC) -o $(NAME)
+    cc $(FLAGS) $(SRC) -o $(NAME)
 
 clean:
-	$(RM) *.o
+    rm -f *.o
 
 fclean: clean
-	$(RM) $(NAME)
+    rm -f $(NAME)
 
-
+.PONY: all clean fclean
