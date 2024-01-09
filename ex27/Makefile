@@ -3,15 +3,15 @@ SRC = ./ft_display_file.c
 FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
-    chmod 777 $(NAME)
+	chmod 777 $(NAME)
 
 $(NAME):
-    cc $(FLAGS) $(SRC) -o $(NAME)
+	cc $(FLAGS) $(SRC) -o $(NAME)
 
 clean:
-    rm -f *.o
+	rm -f *.o
 
 fclean: clean
-    rm -f $(NAME)
+	rm -f $(NAME)
 
 .PONY: all clean fclean
