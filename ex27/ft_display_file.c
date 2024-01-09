@@ -6,7 +6,7 @@
 /*   By: healeksa <healeksa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 19:23:49 by healeksa          #+#    #+#             */
-/*   Updated: 2024/01/08 19:23:49 by healeksa         ###   ########.fr       */
+/*   Updated: 2024/01/09 14:59:51 by healeksa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,7 @@ int	main(int argc, char **argv)
 		ft_putstr(data);
 	}
 	close(desc);
+	if (close(desc) == -1)
+		return (1);
+	return (0);
 }
