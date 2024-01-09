@@ -6,12 +6,13 @@
 /*   By: healeksa <healeksa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 19:19:07 by healeksa          #+#    #+#             */
-/*   Updated: 2024/01/08 19:19:21 by healeksa         ###   ########.fr       */
+/*   Updated: 2024/01/09 13:31:13 by healeksa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_ABS_H
 # define FT_ABS_H
-# define ABS(Value) Value < 0 ? -Value : Value
+
+# define ABS(Value) ((Value) * ((Value) >= 0) + (-(Value)) * ((Value) < 0))
 
 #endif

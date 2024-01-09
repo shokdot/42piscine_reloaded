@@ -1,6 +1,6 @@
 NAME = libft.a
 SRC = ./srcs/
-FILES = $(SOURCE_CODE)ft_putchar.c $(SOURCE_CODE)ft_swap.c $(SOURCE_CODE)ft_putstr.c $(SOURCE_CODE)ft_strlen.c $(SOURCE_CODE)ft_strcmp.c
+FILES = $(SRC)ft_putchar.c $(SRC)ft_swap.c $(SRC)ft_putstr.c $(SRC)ft_strlen.c $(SRC)ft_strcmp.c
 C_FLAGS = -Wall -Wextra -Werror -c
 HEADER= ./includes/*.h
 RM = /bin/rm -f
