@@ -1,6 +1,6 @@
 SRC = ./ft_display_file.c
 NAME = ft_display_file
-C_FLAGS = -Wall -Wextra -Werror -o
+C_FLAGS = -Wall -Wextra -Werror
 RM = /bin/rm -f
 
 all: $(NAME)
